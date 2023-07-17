@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private Transform _path;
-    [SerializeField] private GameObject _coin;
+    [SerializeField] private Coin _coin;
     
     private Transform _target;
     private Transform[] _points;

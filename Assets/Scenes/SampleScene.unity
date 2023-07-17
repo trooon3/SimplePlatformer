@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _path: {fileID: 1789140906}
-  _coin: {fileID: 8230260947881492968, guid: 365a7fa741be95c44ba5bf3b95400e50, type: 3}
+  _coin: {fileID: 8230260947881492977, guid: 365a7fa741be95c44ba5bf3b95400e50, type: 3}
 --- !u!4 &1789140906
 Transform:
   m_ObjectHideFlags: 0
