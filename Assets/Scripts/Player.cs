@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
+
 public class Player : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
@@ -11,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _ground;
 
+    private int Speed = Animator.StringToHash("speed");
+    
     private float _radius = 0.3f;
     private float _moveSpeed = 6f;
     private AudioSource _audioSource;
@@ -29,13 +33,13 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            _animator.SetFloat("speed", Mathf.Abs(_moveSpeed));
+            _animator.SetFloat(Speed, Mathf.Abs(_moveSpeed));
             transform.Translate(-_moveSpeed * Time.deltaTime, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            _animator.SetFloat("speed", Mathf.Abs(_moveSpeed));
+            _animator.SetFloat(Speed, Mathf.Abs(_moveSpeed));
             transform.Translate(_moveSpeed * Time.deltaTime, 0, 0);
         }
 

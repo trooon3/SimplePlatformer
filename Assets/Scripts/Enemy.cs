@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Transform target = _points[_currentPoint];
 
