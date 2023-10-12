@@ -4,36 +4,42 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform _path;
-    [SerializeField] private float _speed;
+    [SerializeField] private Player _target;
+    [SerializeField] private int _health;
+    [SerializeField] private int _damage;
+    
+    public Player Target => _target;
+    public int Damage => _damage;
 
-    private Transform[] _points;
-    private int _currentPoint;
-
-    private void Start()
+    public void ApplyDamage(int damage)
     {
-        _points = new Transform[_path.childCount];
-
-        for (int i = 0; i < _path.childCount; i++)
+        if (_health > 0)
         {
-            _points[i] = _path.GetChild(i);
+            _health -= damage;
+        }
+        if (_health < 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Transform target = _points[_currentPoint];
-
-        transform.position = Vector3.MoveTowards(transform.position, target.position, _speed * Time.deltaTime);
-        
-        if (transform.position == target.position)
+        if (collision.TryGetComponent<Player>(out Player player))
         {
-            _currentPoint++;
+            TakeDamage(player.Damage);
+        }
+    }
 
-            if (_currentPoint >= _points.Length)
-            {
-                _currentPoint = 0;
-            }
+    public void TakeDamage(int damage)
+    {
+        if (_health > 0)
+        {
+            _health -= damage;
+        }
+        if (_health <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 }
