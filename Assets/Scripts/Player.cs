@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool _onGround;
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
-   
+
     private int Speed = Animator.StringToHash("Speed");
     private int Chop = Animator.StringToHash("Attack");
     
@@ -90,6 +90,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent(out Enemy enemy) && Input.GetKey(KeyCode.S))
+        {
+            enemy.TakeDamage(_damage);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (_health > 0)
@@ -104,7 +112,6 @@ public class Player : MonoBehaviour
 
     private void Heal(int healPoints)
     {
-
         if (_health > 0)
         {
             _health += healPoints;

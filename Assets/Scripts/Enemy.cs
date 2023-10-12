@@ -11,25 +11,13 @@ public class Enemy : MonoBehaviour
     public Player Target => _target;
     public int Damage => _damage;
 
-    public void ApplyDamage(int damage)
-    {
-        if (_health > 0)
-        {
-            _health -= damage;
-        }
-        if (_health < 0)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent<Player>(out Player player))
-        {
-            TakeDamage(player.Damage);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.TryGetComponent<Player>(out Player player))
+    //    {
+    //        TakeDamage(player.Damage);
+    //    }
+    //}
 
     public void TakeDamage(int damage)
     {
