@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyFightController : MonoBehaviour
 {
     [SerializeField] private Player _target;
     [SerializeField] private int _health;
@@ -11,13 +11,13 @@ public class Enemy : MonoBehaviour
     public Player Target => _target;
     public int Damage => _damage;
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.TryGetComponent<Player>(out Player player))
-    //    {
-    //        TakeDamage(player.Damage);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<Player>(out Player player))
+        {
+            _target.TakeDamage(_damage);
+        }
+    }
 
     public void TakeDamage(int damage)
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(EnemyFightController))]
 public class EnemyStateMachine : MonoBehaviour
 {
     [SerializeField] private State _startState;
@@ -14,7 +14,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Start()
     {
-        _target = GetComponent<Enemy>().Target;
+        _target = GetComponent<EnemyFightController>().Target;
         Reset(_startState);
     }
 

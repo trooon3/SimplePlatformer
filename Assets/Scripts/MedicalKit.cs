@@ -5,7 +5,7 @@ using UnityEngine;
 public class MedicalKit : MonoBehaviour
 {
     [SerializeField] private int _healPoints;
-
+    
     public int HealPoints => _healPoints;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,6 +13,7 @@ public class MedicalKit : MonoBehaviour
         if (collision.TryGetComponent<Player>(out Player player))
         {
             Destroy(gameObject);
+            player.Heal(_healPoints);
         }
     }
 }
