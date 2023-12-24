@@ -12,18 +12,25 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _ground;
     [SerializeField] private bool _onGround;
-    [SerializeField] private int _health;
-    [SerializeField] private int _damage;
+    [SerializeField] private float _damage;
 
     private PlayerCollisionHandler _collisionHandler;
     private PlayerAnimator _animator;
     private float _radius = 0.3f;
-    
-    public int Damage => _damage;
+    private float _maxHealth = 20f;
+    private float _minHealth = 0;
+
+    public float MaxHealth => _maxHealth;
+    public float CurrentHealthPoints { get; private set; }
+    public float Damage => _damage;
     public bool OnGround => _onGround;
+
+    public UnityAction HealthChanged;
 
     private void Start()
     {
+        CurrentHealthPoints = _maxHealth;
+        HealthChanged?.Invoke();
         _collisionHandler = GetComponent<PlayerCollisionHandler>();
         _animator = GetComponent<PlayerAnimator>();
     }
@@ -38,27 +45,21 @@ public class Player : MonoBehaviour
         _onGround = Physics2D.OverlapCircle(_groundCheck.position, _radius, _ground);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        if (_health > 0)
+        CurrentHealthPoints = Mathf.Clamp(CurrentHealthPoints -= damage, _minHealth, _maxHealth);
+        HealthChanged?.Invoke();
+
+        if (CurrentHealthPoints <= _minHealth)
         {
-            _health -= damage;
-        }
-        if (_health <= 0)
-        {
+            HealthChanged?.Invoke();
             gameObject.SetActive(false);
         }
     }
 
-    public void Heal(int healPoints)
+    public void Heal(float healPoints)
     {
-        if (_health > 0)
-        {
-            _health += healPoints;
-        }
-        if (_health >= 10)
-        {
-            _health = 10;
-        }
+        CurrentHealthPoints = Mathf.Clamp(CurrentHealthPoints += healPoints, _minHealth, _maxHealth);
+        HealthChanged?.Invoke();
     }
 }
