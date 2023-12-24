@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public bool OnGround => _onGround;
 
     public UnityAction HealthChanged;
+    public UnityAction VampAttack;
 
     private void Start()
     {
@@ -38,6 +39,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CheckStandOnGround();
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            VampAttack?.Invoke();
+        }
     }
 
     private void CheckStandOnGround()

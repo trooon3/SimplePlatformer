@@ -263,6 +263,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &135855245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135855246}
+  - component: {fileID: 135855248}
+  - component: {fileID: 135855247}
+  m_Layer: 0
+  m_Name: Vampirepower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &135855246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135855245}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.013333321, y: -0.040000044, z: 0}
+  m_LocalScale: {x: 0.33333325, y: 0.33333325, z: 0.33333334}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 289916857}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135855247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135855245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded885d46344dce4da83a0bfb5461de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 289916851}
+--- !u!70 &135855248
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135855245}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &138155743
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,11 +650,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289916849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.63, y: -2.35, z: 0}
+  m_LocalPosition: {x: -7.6, y: -2.15, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 452775703}
+  - {fileID: 135855246}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1065,7 +1128,7 @@ RectTransform:
   m_GameObject: {fileID: 468030583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.24, z: 1}
+  m_LocalScale: {x: 1.59, y: 2.28, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 634485053}
@@ -1296,7 +1359,7 @@ RectTransform:
   m_GameObject: {fileID: 570690173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.24, z: 1}
+  m_LocalScale: {x: 1.59, y: 2.28, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 764572435}
@@ -1683,7 +1746,7 @@ RectTransform:
   m_GameObject: {fileID: 788357519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.24, z: 1}
+  m_LocalScale: {x: 1.59, y: 2.28, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4976676}
@@ -1799,7 +1862,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.674588
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1823,7 +1886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968388873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.05, y: 0.28, z: -11.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2388,7 +2451,7 @@ PrefabInstance:
       objectReference: {fileID: 289916851}
     - target: {fileID: 4428094754762003887, guid: 9103b2bf88a210c4b8da810584c6f29c, type: 3}
       propertyPath: _maxHealth
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4428094754762003893, guid: 9103b2bf88a210c4b8da810584c6f29c, type: 3}
       propertyPath: m_Name
@@ -2412,7 +2475,7 @@ PrefabInstance:
       objectReference: {fileID: 468030585}
     - target: {fileID: 8464530824997659784, guid: 9103b2bf88a210c4b8da810584c6f29c, type: 3}
       propertyPath: _healPointChangeSpeed
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9103b2bf88a210c4b8da810584c6f29c, type: 3}

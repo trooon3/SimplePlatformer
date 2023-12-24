@@ -10,7 +10,7 @@ public class PlayerHealthViewer : MonoBehaviour
     [SerializeField] private float _healPointChangeSpeed;
 
     private Coroutine _coroutine;
-    private Vector3 _offset = new Vector3(0, 1);
+    private Vector3 _offset = new Vector3(0, 2);
 
     private void Start()
     {
